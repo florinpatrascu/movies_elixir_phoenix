@@ -14,8 +14,11 @@ These are the components of our Web Application:
 
 ### Prerequisites
 
-- a local (or remote) Neo4j graph dayabase server 
-- the demo Movie Database
+- elixir and phoenix
+- a local (or remote) Neo4j graph database server. This demo will connect to a local Neo4j Community Edition server instance available at: `http://localhost:7474` 
+- the demo Movie Database. Open the [Neo4j Browser](http://localhost:7474).
+Then install the Movies dataset with `:play movies`, click and hit the "Run" button.
+
 
 ### Install
 
