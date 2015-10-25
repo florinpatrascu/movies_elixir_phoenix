@@ -1,0 +1,154 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://neo4j-contrib.github.io/developer-resources/language-guides/assets/css/main.css">
+  <title>Elixir/Phoenix/Neo4j - Movies</title>
+</head>
+
+<body>
+<p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+<p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+<div id="graph">
+</div>
+
+<div role="navigation" class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <ul class="nav navbar-nav">
+          <li>
+            <form role="search" class="navbar-form" id="search">
+              <div class="form-group">
+                <input type="text" value="Matrix" placeholder="Search for Movie Title" class="form-control"
+                       name="search">
+              </div>
+              <button class="btn btn-default" type="submit">Search</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-header col-sm-6 col-md-6">
+        <div class="logo-well">
+          <a href="http://neo4j.com/developer-resources">
+            <img src="http://neo4j-contrib.github.io/developer-resources/language-guides/assets/img/logo-white.svg"
+                 alt="Neo4j World's Leading Graph Database" id="logo">
+          </a>
+        </div>
+        <div class="navbar-brand">
+          <div class="brand">Neo4j Movies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">Search Results</div>
+      <table id="results" class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Movie</th>
+          <th>Released</th>
+          <th>Tagline</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="panel panel-default">
+      <div class="panel-heading" id="title">Details</div>
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <img src="" class="well" id="poster"/>
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <h4>Crew</h4>
+          <ul id="crew">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= @inner %>
+
+<style type="text/css">
+  .node {
+    stroke: #222;
+    stroke-width: 1.5px;
+  }
+
+  .node.actor {
+    fill: #888;
+  }
+
+  .node.movie {
+    fill: #BBB;
+  }
+
+  .link {
+    stroke: #999;
+    stroke-opacity: .6;
+    stroke-width: 1px;
+  }
+
+  .marketing {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  /* Phoenix flash messages */
+  .alert:empty { display: none; }
+
+</style>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<script type="text/javascript">
+  $(function () {
+    function showMovie(title) {
+      $.get("/movies/findByTitle?title=" + encodeURIComponent(title), // todo fix paramter in SDN
+          function (movie) {
+            if (!movie) return; //  || !data["_embedded"].movies) return;
+            $("#title").text(movie.title);
+            $("#poster").attr("src", "http://neo4j-contrib.github.io/developer-resources/language-guides/assets/posters/" + encodeURIComponent(movie.title) + ".jpg");
+            var $list = $("#crew").empty();
+            movie.crew.forEach(function (cast) {
+              var job = cast.type || "acted";
+              $list.append($("<li>" + cast.name + " " +job + (job == "ACTED_IN"?" as " + cast.roles.join(
+                  ", ") : "") + "</li>"));
+            });
+          }, "json");
+      return false;
+    }
+
+    function search() {
+      var query = $("#search").find("input[name=search]").val();
+      $.get("/movies/findByTitleContaining?title=" + encodeURIComponent(query),
+          function (data) {
+            var t = $("table#results tbody").empty();
+            if (!data.movies) return;
+            data.movies.forEach(function (movie) {
+              $("<tr><td class='movie'>" + movie.title + "</td><td>" + movie.released + "</td><td>" + movie.tagline + "</td></tr>").appendTo(t)
+                  .click(function () {
+                    showMovie($(this).find("td.movie").text());
+                  })
+            });
+            showMovie(data.movies[0].title);
+          }, "json");
+      return false;
+    }
+
+    $("#search").submit(search);
+    search();
+  })
+</script>
+</body>
+</html>
