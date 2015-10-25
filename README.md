@@ -19,17 +19,17 @@ These are the components of our Web Application:
 
 ### Install
 
-  $ git clone https://github.com/florinpatrascu/movies_elixir_phoenix
-  $ cd movies_elixir_phoenix
-  $ mix do deps.get, deps.compile
+    $ git clone https://github.com/florinpatrascu/movies_elixir_phoenix
+    $ cd movies_elixir_phoenix
+    $ mix do deps.get, deps.compile
 
 
 ### Run
 
 Start the Phoenix server:
 
-  $ cd movies_elixir_phoenix
-  $ mix phoenix.server
+    $ cd movies_elixir_phoenix
+    $ mix phoenix.server
 
 Point your browser to: `http://localhost:4000`, and you'll something like this:
 
