@@ -62,7 +62,7 @@ Start the Phoenix server:
     $ cd movies_elixir_phoenix
     $ mix phoenix.server
 
-Point your browser to: `http://localhost:4000`, and you'll something like this:
+Point your browser to: `http://localhost:4000`, and you'll see something like this:
 
 ![](web/static/elixir_movies_demo.png)
 
