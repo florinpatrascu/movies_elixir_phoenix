@@ -1,7 +1,6 @@
 defmodule MoviesElixirPhoenix.MovieController do
   use MoviesElixirPhoenix.Web, :controller
 
-  alias MoviesElixirPhoenix.Movie
   alias MoviesElixirPhoenix.Utils
   alias Neo4j.Sips, as: Neo4j
 
@@ -20,7 +19,7 @@ defmodule MoviesElixirPhoenix.MovieController do
   end
 
   def search_by_title_containing(conn, %{"title" => title}) do
-    cypher="""
+    cypher = """
       MATCH (m:Movie) WHERE m.title =~ (\"(?i).*#{title}.*\")
       RETURN m as movie
     """
@@ -31,14 +30,14 @@ defmodule MoviesElixirPhoenix.MovieController do
 
   # todo: add a View for this
   def graph(conn, %{"limit" => limit}) do
-    cypher="""
+    cypher = """
       MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)
       RETURN m.title as movie, collect(a.name) as cast
       LIMIT #{limit}
     """
 
-    graph=Neo4j.query!(Neo4j.conn, cypher)
-    render(conn, "search_by_title_containing.json", graph: graph)
+    data = Neo4j.query!(Neo4j.conn, cypher)
+    render(conn, "graph.json", data: Utils.graph(data))
   end
 
 end

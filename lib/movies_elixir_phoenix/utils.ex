@@ -6,7 +6,6 @@ defmodule MoviesElixirPhoenix.Utils do
     persons = Enum.map roles, &( Map.merge(
       List.first(find_person_by_id(nodes, &1.start)), Dict.take(&1, [:roles, :type]) ))
 
-    # meh
     Map.merge movie, %{crew: persons}
   end
 
@@ -17,8 +16,36 @@ defmodule MoviesElixirPhoenix.Utils do
     {List.flatten(nodes), List.flatten(rels)} # todo: refactor me
   end
 
+  def graph(data) do
+    nodes = artists_and_movies(data)
+    links = data
+    |> Enum.map(fn(%{"cast" => cast, "movie" => movie}) ->
+                  Enum.map(cast, &({&1, movie}))
+                end)
+    |> List.flatten
+    |> Enum.map(fn({a,m}) ->
+                   {Enum.find_index(nodes, &(%{artist: a} == &1)),
+                    Enum.find_index(nodes, &(%{movie: m} == &1))}
+                end)
+
+    %{links: links, nodes: nodes}
+  end
+
   # private stuff, playground mostly
   # ================================
+
+  defp artists_or_movie(data, node_type) do
+    case node_type do
+      "cast"  -> data |> Enum.map(fn(%{"cast"  => node}) -> Enum.map(node, &(%{artist: &1})) end)
+      "movie" -> data |> Enum.map(fn(%{"movie" => node}) -> node end) |> Enum.map(&(%{movie: &1}))
+    end
+    |> List.flatten
+    |> Enum.uniq
+  end
+
+  defp artists_and_movies(data) do
+    artists_or_movie(data, "cast") ++ artists_or_movie(data, "movie")
+  end
 
   defp parse_nodes(graph) do
     nodes = graph["nodes"]
