@@ -1,9 +1,9 @@
-<div class="row marketing well">
-  <div class="text-center col-lg-12">
+<div class="row marketing">
+  <div class="text-right col-lg-12">
     <h6><span class="text-muted small">Resources</span></h6>
-      <a href="http://neo4j.com/developer/get-started/"><span class="label label-default">Neo4J</span></a> &#x25CB;
-      <a href="http://elixir-lang.org/"><span class="label label-default">Elixir</span></a> &#x25CB;
-      <a href="https://github.com/phoenixframework/phoenix"><span class="label label-default">Phoenix</span></a> &#x25CB;
-      <a href="https://github.com/florinpatrascu/neo4j_sips"><span class="label label-default">Neo4j.Sips</span></a>
+    <a href="http://neo4j.com/developer/get-started/"><span class="label label-default">Neo4J</span></a> &#x25CB;
+    <a href="http://elixir-lang.org/"><span class="label label-default">Elixir</span></a> &#x25CB;
+    <a href="https://github.com/phoenixframework/phoenix"><span class="label label-default">Phoenix</span></a> &#x25CB;
+    <a href="https://github.com/florinpatrascu/neo4j_sips"><span class="label label-default">Neo4j.Sips</span></a>
   </div>
 </div>
