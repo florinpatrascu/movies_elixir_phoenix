@@ -77,6 +77,10 @@ Oh, oh, and some **endpoints**, of course :)
     $ curl -H "Accept:application/json" \
       http://localhost:4000/movies/findByTitleContaining?title=matrix
 
+    # JSON object for the whole graph viz (nodes, links - arrays)
+    $ curl -H "Accept:application/json" \
+      http://localhost:4000/movies/graph?limit=100
+
 
 ### Credits
 
