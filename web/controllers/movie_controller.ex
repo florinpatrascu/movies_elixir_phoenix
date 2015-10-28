@@ -28,7 +28,6 @@ defmodule MoviesElixirPhoenix.MovieController do
     render(conn, "search_by_title_containing.json", movies: movies)
   end
 
-  # todo: add a View for this
   def graph(conn, %{"limit" => limit}) do
     cypher = """
       MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)
