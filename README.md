@@ -1,5 +1,7 @@
 ## The Movies Example Application
 
+(updated for [Elixir 1.2](http://elixir-lang.org) and [Phoenix 1.1.4](https://hex.pm/packages/phoenix/1.1.4)) - 2016-05-21
+
 A very simple web application using [Neo4j](http://neo4j.com/developer/get-started/) with [Elixir](http://elixir-lang.org), [Phoenix](http://www.phoenixframework.org) and [Neo4j.Sips(β)](https://github.com/florinpatrascu/neo4j_sips).
 
 ### The Stack
