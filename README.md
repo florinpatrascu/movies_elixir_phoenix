@@ -1,8 +1,9 @@
 ## The Movies Example Application
 
-(updated for [Elixir 1.2](http://elixir-lang.org) and [Phoenix 1.1.4](https://hex.pm/packages/phoenix/1.1.4)) - 2016-05-21
+**Update**:  2016-07-26 
+  - using [Elixir 1.3.2](http://elixir-lang.org), [Phoenix 1.2.0](https://hex.pm/packages/phoenix/1.2.0) and the [Neo4j 3](https://neo4j.com/developer/get-started/) server
 
-A very simple web application using [Neo4j](http://neo4j.com/developer/get-started/) with [Elixir](http://elixir-lang.org), [Phoenix](http://www.phoenixframework.org) and [Neo4j.Sips(β)](https://github.com/florinpatrascu/neo4j_sips).
+A very simple web application using [Neo4j](http://neo4j.com/developer/get-started/) with [Elixir](http://elixir-lang.org), [Phoenix](http://www.phoenixframework.org) and the [Neo4j.Sips](https://github.com/florinpatrascu/neo4j_sips) driver.
 
 ### The Stack
 
@@ -10,7 +11,7 @@ These are the components of our Web Application:
 
 - Application Type: An [Elixir](http://elixir-lang.org) [Phoenix](http://www.phoenixframework.org) web application
 - Web framework: [Phoenix](http://www.phoenixframework.org)
-- Persistence Access: [Neo4j.Sips(β)](https://github.com/florinpatrascu/neo4j_sips)
+- Persistence Access: [Neo4j.Sips](https://github.com/florinpatrascu/neo4j_sips)
 - Database: [Neo4j](http://neo4j.com/developer/get-started/) Server
 - Frontend: jquery, bootstrap
 
@@ -90,5 +91,6 @@ Oh, oh, and some **endpoints**, of course :)
 
 ### License
 
-MIT
+**MIT**
+
 

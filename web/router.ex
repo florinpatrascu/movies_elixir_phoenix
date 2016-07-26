@@ -26,5 +26,4 @@ defmodule MoviesElixirPhoenix.Router do
     get "/findByTitle", MovieController, :search_by_title
     get "/graph", MovieController, :graph
   end
-
 end

@@ -25,7 +25,9 @@ defmodule MoviesElixirPhoenix.Web do
   def controller do
     quote do
       use Phoenix.Controller
+
       import MoviesElixirPhoenix.Router.Helpers
+      import MoviesElixirPhoenix.Gettext
     end
   end
 
@@ -40,6 +42,8 @@ defmodule MoviesElixirPhoenix.Web do
       use Phoenix.HTML
 
       import MoviesElixirPhoenix.Router.Helpers
+      import MoviesElixirPhoenix.ErrorHelpers
+      import MoviesElixirPhoenix.Gettext
     end
   end
 
@@ -52,6 +56,7 @@ defmodule MoviesElixirPhoenix.Web do
   def channel do
     quote do
       use Phoenix.Channel
+      import MoviesElixirPhoenix.Gettext
     end
   end
 

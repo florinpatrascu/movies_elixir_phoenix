@@ -4,13 +4,13 @@ defmodule MoviesElixirPhoenix do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
+    import Supervisor.Spec
 
+    # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
       supervisor(MoviesElixirPhoenix.Endpoint, []),
-      # Here you could define other workers and supervisors as children
-      # worker(MoviesElixirPhoenix.Worker, [arg1, arg2, arg3]),
+      worker(Neo4j.Sips, [Application.get_env(:neo4j_sips, Neo4j)])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

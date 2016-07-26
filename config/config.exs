@@ -8,9 +8,8 @@ use Mix.Config
 # Configures the endpoint
 config :movies_elixir_phoenix, MoviesElixirPhoenix.Endpoint,
   url: [host: "localhost"],
-  root: Path.dirname(__DIR__),
-  secret_key_base: "Wh83K8UpIWWP9QHzBVfieIg2TyHSHdxt/sgNPiA+eAqcSkhbdZBfCKUrw7JPZJSO",
-  render_errors: [accepts: ~w(html json)],
+  secret_key_base: "KRwiqSqTfNOwFJRgj7ZyI41wSH2Y9rrVDvgSTvwlFQQAi5gBnxFheg2NmscVEcDM",
+  render_errors: [view: MoviesElixirPhoenix.ErrorView, accepts: ~w(html json)],
   pubsub: [name: MoviesElixirPhoenix.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
