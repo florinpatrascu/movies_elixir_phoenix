@@ -3,7 +3,7 @@ defmodule MoviesElixirPhoenix.Mixfile do
 
   def project do
     [app: :movies_elixir_phoenix,
-     version: "0.2.19",
+     version: "0.2.20",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -29,12 +29,12 @@ defmodule MoviesElixirPhoenix.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.0"},
+    [{:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:neo4j_sips, "~> 0.2.10"},
+     {:neo4j_sips, "~> 0.2"},
      {:cowboy, "~> 1.0"}]
   end
 end

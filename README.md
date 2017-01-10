@@ -1,5 +1,9 @@
 ## The Movies Example Application
 
+**Update**:  2017-01-09
+  - working with Elixir 1.3/1.4 and the latest Neo4j.Sips driver (0.2.17)
+  - supporting the Neo4j servers version 3.0.x/3.1.0
+
 **Update**:  2016-07-26 
   - using [Elixir 1.3.2](http://elixir-lang.org), [Phoenix 1.2.0](https://hex.pm/packages/phoenix/1.2.0) and the [Neo4j 3](https://neo4j.com/developer/get-started/) server
 

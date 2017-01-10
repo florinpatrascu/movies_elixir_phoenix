@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.20 (2017-01-09)
+- Neo4j.Sips driver update; 0.2.17
+
 ## v0.2.19 (2016-07-26)
 - Enhancements
     * ready for Elixir 1.3
