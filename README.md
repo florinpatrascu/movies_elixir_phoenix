@@ -16,20 +16,21 @@ These are the components of our Web Application:
 - Application Type: An [Elixir](http://elixir-lang.org) [Phoenix](http://www.phoenixframework.org) web application
 - Web framework: [Phoenix](http://www.phoenixframework.org)
 - Persistence Access: [Neo4j.Sips](https://github.com/florinpatrascu/neo4j_sips)
-- Database: [Neo4j](http://neo4j.com/developer/get-started/) Server
+- Database: [Neo4j](http://neo4j.com/developer/get-started/) Server with Movies dataset
 - Frontend: jquery, bootstrap
 
 ### Prerequisites
 
 - elixir and phoenix
 - a local (or remote) Neo4j graph database server. This demo will connect to a local Neo4j Community Edition server instance available at: `http://localhost:7474` 
+- disable auth in `conf/neo4j-server.properties` (for now)
 - the demo Movie Database. Open the [Neo4j Browser](http://localhost:7474).
 Then install the Movies dataset with `:play movies`, click and hit the "Run" button.
 
 
 ## Install
 
-    $ git clone https://github.com/florinpatrascu/movies_elixir_phoenix
+    $ git clone https://github.com/neo4j-examples/movies_elixir_phoenix
     $ cd movies_elixir_phoenix
     $ mix do deps.get, deps.compile
 
