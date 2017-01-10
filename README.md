@@ -30,8 +30,8 @@ Then install the Movies dataset with `:play movies`, click and hit the "Run" but
 
 ## Install
 
-    $ git clone https://github.com/neo4j-examples/movies-elixir-phoenix
-    $ cd movies-elixir-phoenix
+    $ git clone https://github.com/neo4j-examples/movies_elixir_phoenix
+    $ cd movies_elixir_phoenix
     $ mix do deps.get, deps.compile
 
 ### Configure the access to your Neo4j server
@@ -67,7 +67,7 @@ more details and examples, here: [Neo4j.Sips](https://github.com/florinpatrascu/
 
 Start the Phoenix server:
 
-    $ cd movies-elixir-phoenix
+    $ cd movies_elixir_phoenix
     $ mix phoenix.server
 
 Point your browser to: `http://localhost:4000`, and you'll see something like this:
